@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prebidserverservice
+  namespace: prebid
+  labels:
+    app: prebidserverservice
+spec:
+  selector:
+    matchLabels:
+      app: prebidserverservice
+  template:
+    metadata:
+      labels:
+        app: prebidserverservice
+    spec:
+      containers:
+      - name: prebidserverservice
+        image: us-docker.pkg.dev/ci-cd-and-monitoring/amp-staging/prebidserverservice:version 
+        ports:
+        - containerPort: 8089
